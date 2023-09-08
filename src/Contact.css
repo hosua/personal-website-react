@@ -1,0 +1,20 @@
+.App-contact {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  color: white;
+}
+
+.contact-container {
+    width: 83%;
+    justify-content: left;
+    align-items: left;
+}
+
+.icon {
+    height: 42px;
+    width: 42px;
+}
