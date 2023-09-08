@@ -22,18 +22,15 @@ Note: This project was bootstrapped with [Create React App](https://github.com/f
 
 ### There are plenty of things I still need to do:
 
-1. Move the forum into its own repository and reference it via git
-   submodule.
-
-2. Improve this README, it is missing a lot of information. 
+1. Improve this README, it is missing a lot of information. 
 	* Ports used by this application, and all sub-applications
 	* How to set up and run...
       - the necessary databases
       - the server-side submodules
 
-3. Use `pm2`` for all server-side hosting. Right now it is only used by
+2. Use `pm2` for all server-side hosting. Right now it is only used by
    yugioh-fm-db, but I want the forum, and any other server-side code I
    may add in the future to also use it, since it conveniently restarts
    the server should an uncaught exception occur.
 
-4. There is more I'm forgetting, add more to this list later...
+3. There is more I'm forgetting, add more to this list later...

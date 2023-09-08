@@ -1,3 +1,6 @@
+[submodule "src/forum"]
+	path = src/forum
+	url = https://github.com/hosua/react-forum.git
 [submodule "src/yugioh-fm-tools"]
 	path = src/yugioh-fm-tools
 	url = https://github.com/hosua/yugioh-fm-tools.git

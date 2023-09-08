@@ -6,7 +6,7 @@ import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 
 import Contact from './Contact.js';
 import Home from './Home.js';
-import Forum from './forum/Forum.js';
+import { Forum } from './forum/src/forum.jsx';
 import Portfolio from './Portfolio.js';
 import { YFMDuelCommonStratsApp } from './yugioh-fm-tools/src/YFMDuelCommonStrats.js';
 import { YFMDuelCalcApp } from './yugioh-fm-tools/src/YFMDuelCalc.js';
