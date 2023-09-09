@@ -1,23 +1,22 @@
-import React from 'react';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, NavDropdown, Nav, Container } from 'react-bootstrap';
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 
-import Contact from './Contact.js';
-import Home from './Home.js';
+import Contact from './Contact.jsx';
+import Home from './Home.jsx';
 import { Forum } from './forum/src/forum.jsx';
-import Portfolio from './Portfolio.js';
-import { YFMDuelCommonStratsApp } from './yugioh-fm-tools/src/YFMDuelCommonStrats.js';
-import { YFMDuelCalcApp } from './yugioh-fm-tools/src/YFMDuelCalc.js';
-import { YFMDatabaseCardList, YFMDatabaseCardDrops } from './yugioh-fm-tools/src/YFMDatabase.js';
+import Portfolio from './Portfolio.jsx';
+import { YFMDuelCommonStratsApp } from './yugioh-fm-tools/src/YFMDuelCommonStrats.jsx';
+import { YFMDuelCalcApp } from './yugioh-fm-tools/src/YFMDuelCalc.jsx';
+import { YFMDatabaseCardList, YFMDatabaseCardDrops } from './yugioh-fm-tools/src/YFMDatabase.jsx';
 
 function AppNavBar() {
     return (
         <>
             <Navbar data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand as={Link} to="/">Hoswoo's Website</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">Hoswoo&quots Website</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">

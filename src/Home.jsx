@@ -1,5 +1,5 @@
 import React from "react";
-import App from "./App.js"
+import App from "./App.jsx"
 import './App.css'
 
 export default function Home() {
