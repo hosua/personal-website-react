@@ -6,6 +6,14 @@
   "scripts": {
     "start": "vite --host",
     "build": "vite build",
+	"forum-server": "pm2 start src/forum/db-server/server.js --name forum-server",
+	"yugioh-server": "pm2 start src/yugioh-fm-tools/db-server/server.js --name yugioh-db-server",
+	"servers": "npm run forum-server && npm run yugioh-server",
+	"restart-forum-server": "pm2 restart forum-server",
+	"restart-yugioh-server": "pm2 restart yugioh-db-server",
+	"restart-servers": "npm run restart-forum-server && npm run restart-yugioh-server",
+	"forum-logs": "pm2 logs forum-server",
+	"yugioh-logs": "pm2 logs yugioh-db-server",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "clean": "rm -rf node_modules/"
@@ -14,6 +22,7 @@
     "bootstrap": "^5.3.1",
     "font-awesome": "^4.7.0",
     "html-react-parser": "^4.2.2",
+    "pm2": "^5.3.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
