@@ -10,23 +10,52 @@ import MinecraftFisher from "./assets/Minecraft-Fisher.png"
 import TetriC from "./assets/TetriC.gif";
 import SnakePP from "./assets/Snake++.gif"
 
-function PortfolioSection(props) {
+function WorkExperience(props) {
+    return (
+        <div className="portfolio-section">
+            <hr />
+            <div className="mb-3">
+                <h3 className="porfolio-title" style={{ display: 'inline' }}>
+                    {props.company} - {props.title}
+                </h3>
+                {props.url !== 'undefined' &&
+                    <Button variant="success" href={props.url} style={{ float: 'right' }}>
+                        Website
+                    </Button>
+                }
+                <br />
+                <br />
+                <div className='portfolio-description'>
+                    <ul>
+                        {props.items.map(item => (
+                            <li><strong>{item.name}</strong> - {item.desc}</li>
+                        ))}
+                    </ul>
+                </div>
+                <span style={{ float: 'right' }}>
+                    <p>{props.employmentDates}</p>
+                </span>
+            </div>
+        </div>
+    );
+}
+
+function PersonalProject(props) {
     return (
         <div className="portfolio-section">
             <hr />
             <div className="mb-3">
                 <h3 className="porfolio-title">
-                    {props.title}
+                    {props.company}
                     {typeof props.src !== 'undefined' &&
                         <Button href={props.src} className='portfolio-button'>Source Code</Button>}
                 </h3>
                 <div className='portfolio-description'>
                     {parse(props.description)}
                 </div>
-                {typeof props.img !== 'undefined' &&
-                    <><br /><Image className="portfolio-img" src={props.img} fluid /></>}
+                <Image className="portfolio-img" src={props.img} fluid />
             </div>
-        </div>
+        </div >
     );
 }
 
@@ -35,13 +64,58 @@ function Portfolio() {
         <>
             <div className="App-portfolio">
                 <h1>Portfolio</h1>
-                <PortfolioSection
+                <h2>Work Experience</h2>
+                <WorkExperience
+                    company="Cisco Meraki"
+                    url="https://meraki.cisco.com/"
+                    title="Firmware Engineer Intern"
+                    items={[
+                        {
+                            name: 'Optimized Yocto Structure',
+                            desc: 'Reorganized Meraki’s Yocto structure to separate open source and proprietary software into different layers, allowing for easier distribution of the open source components of Meraki’s software.'
+                        },
+                        {
+                            name: 'Enhanced gRPC Client Logging',
+                            desc: 'Extended logging for a multi-threaded gRPC client, offering more insight into some causes of potential segmentation faults which contributed towards more effective debugging and issue resolution.'
+                        },
+                        {
+                            name: 'Worked on CPU-Monitoring Plugin',
+                            desc: 'Contributed to the creation of a plugin to monitor and report instances of excessive CPU consumption, in effort to pinpoint resource-intensive processes in remote devices',
+                        }
+
+                    ]}
+                    employmentDates="May 2023 - August 2023"
+                />
+
+                <WorkExperience
+                    company="Crestron Electronics"
+                    url="https://www.crestron.com/"
+                    title="Firmware Engineer Intern"
+                    items={[
+                        {
+                            name: 'Video Streaming Security',
+                            desc: 'Collaborated closely with engineers to implement an initial API framework, implementing an interface for Crestron’s Rx/Tx devices with gRPC C++ for a robust and secure API.'
+                        },
+                        {
+                            name: 'Simplified Build Process Using CMake',
+                            desc: 'Utilized CMake to simplify the building process, resulting in efficient and user-friendly development experience.'
+                        },
+                        {
+                            name: 'Streamlined Environment Setup',
+                            desc: 'Took the initiative to author a comprehensive bash script, automating the entire setup and environment configuration and ensuring a smooth continuation of my work beyond my employment.'
+                        }
+                    ]}
+                    employmentDates="May 2022 - September 2022"
+                />
+
+                <h2>Personal Projects</h2>
+                <PersonalProject
                     title="hoswoo.xyz"
                     description={`This website is currently a work in progress, and considered part of my portfolio.
 
                     It uses ReactJS & Bootstrap 5 for the front-end.`}
                 />
-                <PortfolioSection
+                <PersonalProject
                     title="TetriC"
                     description={`This is a Tetris clone with mechanics based on the NES version of Tetris.
                     
@@ -49,7 +123,7 @@ function Portfolio() {
                     img={TetriC}
                     src="https://github.com/hosua/TetriC"
                 />
-                <PortfolioSection
+                <PersonalProject
                     title="CHIP-8 Emulator"
                     description={`I have always been interested in learning about how video game emulation works, and creating a <a href="https://en.wikipedia.org/wiki/CHIP-8">CHIP-8</a> emulator is a great place to start! 
                     
@@ -57,13 +131,13 @@ function Portfolio() {
                     img={Chip8}
                     src="https://github.com/hosua/chip8"
                 />
-                <PortfolioSection
+                <PersonalProject
                     title="Snake++"
                     img={SnakePP}
                     description={`A Snake clone written in C++ with SDL2. Features simple menus, difficulty settings, and high score saving.`}
                     src="https://github.com/hosua/SnakePlusPlus"
                 />
-                <PortfolioSection
+                <PersonalProject
                     title="Calc++"
                     img={CalcPP}
                     description={`A text-based scientific calculator written in C++. 
@@ -73,7 +147,7 @@ function Portfolio() {
                     Uses the <a href="https://en.wikipedia.org/wiki/Shunting_yard_algorithm">shunting yard algorithm</a> to parse input.`}
                     src="https://github.com/hosua/CalcPlusPlus"
                 />
-                <PortfolioSection
+                <PersonalProject
                     title="Blackjack Simulator"
                     description={`This is text-based Blackjack simulator created in Python.
 
@@ -85,7 +159,7 @@ function Portfolio() {
                     `}
                     src="https://github.com/hosua/Blackjack"
                 />
-                <PortfolioSection
+                <PersonalProject
                     title="Folder Organizer Tool"
                     description={`This tool is a Python script that is used to manage my ROMs and put them into alphabetical folders.
 
@@ -94,7 +168,7 @@ function Portfolio() {
                     src="https://github.com/hosua/Folder-Organizer-Tool/"
                 />
 
-                <PortfolioSection
+                <PersonalProject
                     title="Minecraft Fisher"
                     description={`This is a fishing bot that I created in Python. It is heavily inspired by another fishing bot called <a href="https://github.com/FairfieldTekLLC/McFishing">McFishing</a>.
 
